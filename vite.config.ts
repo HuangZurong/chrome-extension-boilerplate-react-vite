@@ -22,7 +22,7 @@ const isProduction = !isDev;
 const enableHmrInBackgroundScript = true;
 const cacheInvalidationKeyRef = { current: generateKey() };
 
-export default defineConfig({
+export default defineConfig(() => ({
   resolve: {
     alias: {
       '@root': rootDir,
@@ -80,7 +80,7 @@ export default defineConfig({
     include: ['**/*.test.ts', '**/*.test.tsx'],
     setupFiles: './test-utils/vitest.setup.js',
   },
-});
+}));
 
 function getCacheInvalidationKey() {
   return cacheInvalidationKeyRef.current;
